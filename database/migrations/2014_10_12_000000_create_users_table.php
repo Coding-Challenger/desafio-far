@@ -20,6 +20,12 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        \App\Models\User::firstOrCreate([
+            'name' => 'Usuario',
+            'email' => 'usuario@example.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('password')
+        ]);
     }
 
     /**
